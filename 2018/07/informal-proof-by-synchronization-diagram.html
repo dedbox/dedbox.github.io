@@ -2,15 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>dedbox</title>
-    <meta name="description" content="dedbox">
+    <title>Informal proof by synchronization diagram</title>
+    <meta name="description" content="Let v be some value. Denote by mK the mediator identified by (sub)script K, and by m-NAME the mediator identified by name NAME. Define the primitive mediated operations (offer, accept, put, get) as in http://docs.racket-lang.org/cmx/.  Further,        (de...">
     <meta name="author"      content="Eric Griffis">
-    <meta name="keywords"    content="cmx, all, concurrency, diagrams">
+    <meta name="keywords"    content="cmx, concurrency, diagrams">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/favicon.ico">
-    <link rel="canonical" href="https://dedbox.github.io/index.html">
+    <link rel="canonical" href="https://dedbox.github.io/2018/07/informal-proof-by-synchronization-diagram.html">
 
-
+    <link rel="prev" href="/2018/07/what-is-a-synchronization-diagram.html">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro:400,400i,700,700i|Audiowide|Lato:400,400i,700,700i&amp;subset=greek" rel="stylesheet">
     <!-- CSS -->
@@ -41,7 +41,7 @@
 
         <div class="collapse navbar-collapse" id="navbar_collapse">
           <ul class="navbar-nav ml-auto">
-            <li class="active">
+            <li>
               <a class="nav-link" href="/">Home</a>
             </li>
             <li>
@@ -66,131 +66,7 @@
 
           <article>
   <header>
-    <h2><a href='/2018/07/what-is-a-synchronization-diagram.html'>What is a synchronization diagram?</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2018-07-08" pubdate="true">2018-07-08</time> :: <span class="tags"><a href="/tags/cmx.html">cmx</a>, <a href="/tags/concurrency.html">concurrency</a>, <a href="/tags/diagrams.html">diagrams</a></span></p>
-    <!-- <p class='authors'>By: <span class="authors">Eric Griffis</span></p> -->
-  </header>
-
-<p>A synchronization diagram displays the synchronization behavior of a set of
-threads as a sequence of discrete events between them. A diagram contains a
-fixed number of rows starting on the left and extending to the right by some
-number of columns. Each row models the behavior of a thread, and each column
-represents a synchronizing event. Time flows from left to right.</p>
-
-<p>The simplest diagram is a channel put/get interaction.</p>
-
-<p></p>
-
-<table cellpadding="0" cellspacing="0">
- <tbody>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">put</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">,--. ||</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt">putter |</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">v</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">-----&gt;|ch| ||</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">`--' ||</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">+</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">+</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| ,--. get</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">||</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt">getter | |ch|-----&gt;</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">v</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">||</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| `--'</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">||</span></p></td></tr></tbody></table>
-
-<p>A more interesting example is the cmx forward construct.</p>
-
-<div class="SCodeFlow">
- <table cellpadding="0" cellspacing="0" class="RktBlk">
-  <tbody>
-   <tr>
-    <td><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">forward</span><span class="hspace">&nbsp;</span><span class="RktSym">m1</span><span class="hspace">&nbsp;</span><span class="RktSym">m2</span><span class="RktPn">)</span></td></tr>
-   <tr>
-    <td><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=event-lang&amp;rel=index.html%23%2528def._%2528%2528lib._event%252Fmain..rkt%2529._bind%2529%2529">bind</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=cmx&amp;rel=index.html%23%2528def._%2528%2528lib._cmx%252Fmediator..rkt%2529._accept%2529%2529">accept</a></span><span class="hspace">&nbsp;</span><span class="RktSym">m1</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/procedures.html#%28def._%28%28lib._racket%2Ffunction..rkt%29._curry%29%29">curry</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=cmx&amp;rel=index.html%23%2528def._%2528%2528lib._cmx%252Fmediator..rkt%2529._offer%2529%2529">offer</a></span><span class="hspace">&nbsp;</span><span class="RktSym">m2</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></div>
-
-<p>Here&rsquo;s a "proof" that it works.</p>
-
-<p></p>
-
-<table cellpadding="0" cellspacing="0">
- <tbody>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">offer</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">,--. :</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| ,--. accept</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">put</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">,--. ||</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt">say</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">m0 --------&gt;|m1| :</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| |m0|--------&gt; m*</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">v -----&gt;|m*| ||</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">`--' :</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| `--'</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">`--' ||</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">+</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">+</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">+</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">+</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">+</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| ,--. accept</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">offer</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">,--. ||</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">:</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">:</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt">forward | |m1|--------&gt; m0</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">m0 --------&gt;|m2| ||</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">:</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">:</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| `--'</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">`--' ||</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">:</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">:</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">+</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">+</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">+</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">+</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">+</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">:</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| ,--. accept</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">offer</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">,--. | ,--. get</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">||</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt">hear</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">:</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| |m2|--------&gt; m0</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">m* --------&gt;|m0| | |m*|-----&gt; v</span><span class="hspace">&nbsp;&nbsp;</span><span class="stt">||</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt"></span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">:</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| `--'</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">|</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">`--' | `--'</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">||</span></p></td></tr></tbody></table>
-
-<p>Clearly, all threads finish (at the double bars). Less obviously,
-<span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=cmx&amp;rel=index.html%23%2528def._%2528%2528lib._cmx%252Fmain..rkt%2529._hear%2529%2529">hear</a></span> is not able to commit to the exchange until after <span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=cmx&amp;rel=index.html%23%2528def._%2528%2528lib._cmx%252Fmain..rkt%2529._say%2529%2529">say</a></span>
-has initiated. Most importantly, <span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=cmx&amp;rel=index.html%23%2528def._%2528%2528lib._cmx%252Fmain..rkt%2529._say%2529%2529">say</a></span> and <span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=cmx&amp;rel=index.html%23%2528def._%2528%2528lib._cmx%252Fmain..rkt%2529._hear%2529%2529">hear</a></span> finish
-together, as <span class="RktSym">v</span> is delivered.</p>
-
-<p>For cmx constructs, a row corresponds to an expression in the calculus of
-mediated exchange and the diagram condenses neatly.</p>
-
-<p></p>
-
-<table cellpadding="0" cellspacing="0">
- <tbody>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt">say</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| offer m1 m0</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">:</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| m* = accept m0 | put m* v</span><span class="hspace">&nbsp;&nbsp;&nbsp;</span><span class="stt">||</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt">forward | m0 = accept m1 | offer m2 m0</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">||</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">:</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">:</span></p></td></tr>
-  <tr>
-   <td>
-    <p><span class="hspace">&nbsp;</span><span class="stt">hear</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">:</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| m0 = accept m2 | offer m0 m*</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="stt">| v = get m* ||</span></p></td></tr></tbody></table>
-
-<p>I&rsquo;ve drawn many synchronization diagrams on paper and as picts, and I need to
-decide where to put them. The protocol used by cmx was discovered by
-iteratively modeling events, determining what went wrong, and adjusting the
-model; this modeling process might be worth documenting, too.</p>
-
-<p>About three months ago, I caught a synchronization timing bug in the code
-<span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=cmx&amp;rel=index.html%23%2528def._%2528%2528lib._cmx%252Fmain..rkt%2529._dispatch%2529%2529">dispatch</a></span> replaces and I just finished integrating cmx (and
-event-lang) back into Neuron to squash it.</p>
-
-</article>
-<article>
-  <header>
-    <h2><a href='/2018/07/informal-proof-by-synchronization-diagram.html'>Informal proof by synchronization diagram</a></h2>
+    <h1>Informal proof by synchronization diagram</h1>
     <p class='date-and-tags'>
 <time datetime="2018-07-08" pubdate="true">2018-07-08</time> :: <span class="tags"><a href="/tags/cmx.html">cmx</a>, <a href="/tags/concurrency.html">concurrency</a>, <a href="/tags/diagrams.html">diagrams</a></span></p>
     <!-- <p class='authors'>By: <span class="authors">Eric Griffis</span></p> -->
@@ -286,7 +162,39 @@ through the control channel of <span class="RktSym">m0</span>.</p>
 
 <p>At some time <span style="font-style: italic">t4</span> &gt; <span style="font-style: italic">t3</span>, the sayer transfers <span class="RktSym">v</span> to the
 hearer through the data channel of <span class="RktSym">m0</span> and then both threads end. &#8718;</p>
+  <!-- <footer>
+    <script type="text/javascript">
+      !function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0];
+          if(!d.getElementById(id)){
+              js=d.createElement(s);
+              js.id=id;
+              js.src="//platform.twitter.com/widgets.js";
+              fjs.parentNode.insertBefore(js,fjs);
+          }
+      }(document,"script","twitter-wjs");
+    </script>
+    <a href="https://twitter.com/share"
+       class="twitter-share-button"
+       data-url="https://dedbox.github.io/2018/07/informal-proof-by-synchronization-diagram.html"
+       data-dnt="true">
+      "Tweet"</a>
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <g:plusone size="medium" href="https://dedbox.github.io/2018/07/informal-proof-by-synchronization-diagram.html"></g:plusone>
+    <div class="row justify-content-center">
+      <nav aria-label="Page Navigation">
+        <ul class="pagination">
 
+          <li class="page-item">
+            <a class="page-link" href="/2018/07/what-is-a-synchronization-diagram.html"
+               aria-label="Next">
+              <span aria-hidden="true">What is a synchronization diagram? &rarr;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </footer> -->
 </article>
         </div>
       </div>

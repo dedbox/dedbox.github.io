@@ -1,0 +1,137 @@
+/* custom.css */
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 1.125rem;
+    position: relative;
+    margin: 0;
+    padding-bottom: 5rem;
+    min-height: 100%;
+    color: #554433;
+}
+
+body > footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+nav > .container > .d-flex {
+    width: 100%;
+}
+
+nav.bg-dark {
+    background-color: #667755 !important;
+}
+
+.navbar .navbar-brand {
+    font-family: 'Audiowide', monospace;
+    font-size: 40px;
+    line-height: 40px;
+    color: white;
+    text-shadow: 1.5px 1.5px 0.5px #aa3333;
+}
+
+h1,
+h2 > a,
+h2 > a:hover
+{
+    color: #aa3333;
+}
+
+a {
+    color: #448800;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #448800;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+.hspace,
+.stt,
+td > p
+{
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
+code, kbd, pre, samp, .RktBlk {
+    font-family: 'Anonymous Pro', monospace;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    color: black;
+}
+
+:not(pre) > code {
+    background: #f9f9f9;
+}
+
+table.sourcetable {
+    width: 100%;
+    border-collapse:separate;
+    border:solid #554433 1px;
+    border-radius:6px;
+    background: #f9f9f9;
+}
+
+td.linenos {
+    display: none;
+}
+
+/* When highlighted code blocks are too wide, they wrap. Resulting in the */
+/* line numbers column's rows not lining up with the code rows. Prevent */
+/* wrapping. */
+pre {
+    white-space: pre;
+    width: inherit;
+    margin: 0;
+    padding: 0.5rem;
+}
+
+article > header > h1,
+article > header > h2
+{
+    margin-top: 1.5rem;
+}
+
+article img {
+  /* Make sure that images within blog articles never take more width
+     than the article width; `height: auto` ensures the height is also
+     resized proportionally.
+
+     This is useful given that Markdown itself gives you little
+     control over image resizing, and in particular no way to achieve
+     this "best fit" behavior.
+ */
+  max-width: 100%;
+  height: auto;
+}
+
+/* Scribble syntax coloring */
+
+.RktSym { color: #000 }
+.RktSym a.RktStxLink { color: #07A }
+.RktSym a.RktValLink { color: #07a }
+.RktValLink { color: #008080 }
+.RktValDef { color: #000 }
+.RktPn { color: #843c24 }
