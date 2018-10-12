@@ -15,3 +15,6 @@ software engineering courses.
 To get a better idea of what I've been up to, take a look at my
 [CV](https://dedbox.github.io/cv/) or
 [LinkedIn](https://www.linkedin.com/in/eagriffis/) profile.
+
+In my spare time, I dabble in
+[photography](https://dedbox.github.io/gallery/).
