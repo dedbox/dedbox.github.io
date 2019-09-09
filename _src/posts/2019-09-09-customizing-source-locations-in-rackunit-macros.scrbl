@@ -38,6 +38,8 @@ Tags: Racket, meta-programming
 
 @define[Racket @hyperlink["https://racket-lang.org/"]{Racket}]
 
+@define[the-source @hyperlink["https://github.com/dedbox/dedbox.github.io/blob/master/_src/posts/2019-09-09-customizing-source-locations-in-rackunit-macros.scrbl"]{the source}]
+
 @; =============================================================================
 @; =============================================================================
 
@@ -84,7 +86,7 @@ happens when a test fails?
 ]
 
 The source location points to the @racket[check] invocation inside the macro
-definition (inside the source for this article), but it would be more helpful
+definition (inside @the-source for this article), but it would be more helpful
 if it pointed to the offending clause of @racket[test-equal?*] instead. If
 @racket[test-equal?*] was a procedural macro, it could copy the source
 location from the syntax object of each clause directly onto the syntax object
@@ -152,7 +154,8 @@ produce the list of clauses. And finally, I can replace the
 ]
 
 Now failed checks will report the location of the clause they came from.
-(Again, check line and column number against the source to be sure.)
+(Again, check line and column number against @the-source to be sure.)
+
 @example[
   (test-equal?
    [ 1  1]

@@ -148,7 +148,7 @@ happens when a test fails?</p>
          <p><span class="RktErr">name: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr">check</span></p></td></tr>
        <tr>
         <td>
-         <p><span class="RktErr">location: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr">eval:69:24</span></p></td></tr>
+         <p><span class="RktErr">location: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr">eval:71:24</span></p></td></tr>
        <tr>
         <td>
          <p><span class="RktErr">params: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr">'(#&lt;procedure:equal?&gt; 1 2)</span></p></td></tr>
@@ -157,7 +157,7 @@ happens when a test fails?</p>
          <p><span class="RktErr">--------------------</span></p></td></tr></tbody></table></td></tr></tbody></table></div>
 
 <p>The source location points to the <span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/rackunit/api.html#%28def._%28%28lib._rackunit%2Fmain..rkt%29._check%29%29">check</a></span> invocation inside the macro
-definition (inside the source for this article), but it would be more helpful
+definition (inside <a href="https://github.com/dedbox/dedbox.github.io/blob/master/_src/posts/2019-09-09-customizing-source-locations-in-rackunit-macros.scrbl">the source</a> for this article), but it would be more helpful
 if it pointed to the offending clause of <span class="RktSym">test-equal?*</span> instead. If
 <span class="RktSym">test-equal?*</span> was a procedural macro, it could copy the source
 location from the syntax object of each clause directly onto the syntax object
@@ -252,55 +252,51 @@ produce the list of clauses. And finally, I can replace the
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/rackunit/api.html#%28def._%28%28lib._rackunit%2Fmain..rkt%29._check%29%29">check</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/booleans.html#%28def._%28%28quote._~23~25kernel%29._equal~3f%29%29">equal?</a></span><span class="hspace">&nbsp;</span><span class="RktRdr">#,</span><span class="RktSym">a-stx</span><span class="hspace">&nbsp;</span><span class="RktRdr">#,</span><span class="RktSym">b-stx</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr></tbody></table></div>
 
-<p></p>
+<p>Now failed checks will report the location of the clause they came from.
+(Again, check line and column number against <a href="https://github.com/dedbox/dedbox.github.io/blob/master/_src/posts/2019-09-09-customizing-source-locations-in-rackunit-macros.scrbl">the source</a> to be sure.)</p>
 
-<div class="SIntrapara">Now failed checks will report the location of the clause they came from.
-(Again, check line and column number against the source to be sure.)
-</div>
-
-<div class="SIntrapara">
- <div class="SCodeFlow">
-  <table cellpadding="0" cellspacing="0" class="RktBlk">
-   <tbody>
-    <tr>
-     <td>
-      <table cellpadding="0" cellspacing="0" class="RktBlk">
-       <tbody>
-        <tr>
-         <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym">test-equal?</span></td></tr>
-        <tr>
-         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktVal">1</span><span class="RktPn">]</span></td></tr>
-        <tr>
-         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktVal"><span class="nobreak">-1</span></span><span class="hspace">&nbsp;</span><span class="RktVal"><span class="nobreak">-1</span></span><span class="RktPn">]</span></td></tr>
-        <tr>
-         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktVal">2</span><span class="RktPn">]</span></td></tr>
-        <tr>
-         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktVal">0</span><span class="RktPn">]</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
-    <tr>
-     <td>
-      <table cellpadding="0" cellspacing="0">
-       <tbody>
-        <tr>
-         <td>
-          <p><span class="RktErr">--------------------</span></p></td></tr>
-        <tr>
-         <td>
-          <p><span class="RktErr">equal?</span></p></td></tr>
-        <tr>
-         <td>
-          <p><span class="RktErr">FAILURE</span></p></td></tr>
-        <tr>
-         <td>
-          <p><span class="RktErr">name: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr">check</span></p></td></tr>
-        <tr>
-         <td>
-          <p><span class="RktErr">location: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr">eval:160:3</span></p></td></tr>
-        <tr>
-         <td>
-          <p><span class="RktErr">params: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr">'(#&lt;procedure:equal?&gt; 1 2)</span></p></td></tr>
-        <tr>
-         <td>
-          <p><span class="RktErr">--------------------</span></p></td></tr></tbody></table></td></tr></tbody></table></div></div>
+<div class="SCodeFlow">
+ <table cellpadding="0" cellspacing="0" class="RktBlk">
+  <tbody>
+   <tr>
+    <td>
+     <table cellpadding="0" cellspacing="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym">test-equal?</span></td></tr>
+       <tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktVal">1</span><span class="RktPn">]</span></td></tr>
+       <tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktVal"><span class="nobreak">-1</span></span><span class="hspace">&nbsp;</span><span class="RktVal"><span class="nobreak">-1</span></span><span class="RktPn">]</span></td></tr>
+       <tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktVal">2</span><span class="RktPn">]</span></td></tr>
+       <tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="hspace">&nbsp;</span><span class="RktVal">0</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktVal">0</span><span class="RktPn">]</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
+   <tr>
+    <td>
+     <table cellpadding="0" cellspacing="0">
+      <tbody>
+       <tr>
+        <td>
+         <p><span class="RktErr">--------------------</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktErr">equal?</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktErr">FAILURE</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktErr">name: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr">check</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktErr">location: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr">eval:163:3</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktErr">params: </span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktErr">'(#&lt;procedure:equal?&gt; 1 2)</span></p></td></tr>
+       <tr>
+        <td>
+         <p><span class="RktErr">--------------------</span></p></td></tr></tbody></table></td></tr></tbody></table></div>
 </article>
         </div>
       </div>
