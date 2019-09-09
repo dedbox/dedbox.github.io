@@ -1,3 +1,2 @@
-https://dedbox.github.io/2018/07/what-is-a-synchronization-diagram.html
-https://dedbox.github.io/2018/07/informal-proof-by-synchronization-diagram.html
+https://dedbox.github.io/2019/09/customizing-source-locations-in-rackunit-macros.html
 https://dedbox.github.io/about.html
