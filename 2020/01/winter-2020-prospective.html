@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>dedbox</title>
-    <meta name="description" content="dedbox">
+    <title>Winter 2020 Prospective</title>
+    <meta name="description" content="I've decided to make a serious effort this year to start using this blog as a project catalog and public relations vehicle. There should be at least one place on the Internet I can point to as a portfolio that isn't GitHub. So, in that spirit, here's what...">
     <meta name="author"      content="Eric Griffis">
-    <meta name="keywords"    content="all, meta-programming, journal, Racket">
+    <meta name="keywords"    content="journal">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <link rel="icon"      href="/favicon.ico">
-    <link rel="canonical" href="https://dedbox.github.io/index.html">
-
+    <link rel="canonical" href="https://dedbox.github.io/2020/01/winter-2020-prospective.html">
+    <link rel="next" href="/2019/09/customizing-source-locations-in-rackunit-macros.html">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Anonymous+Pro:400,400i,700,700i|Audiowide|Lato:400,400i,700,700i&amp;subset=greek" rel="stylesheet">
@@ -41,7 +41,7 @@
 
         <div class="collapse navbar-collapse" id="navbar_collapse">
           <ul class="navbar-nav ml-auto">
-            <li class="active">
+            <li>
               <a class="nav-link" href="/">Home</a>
             </li>
             <li>
@@ -69,7 +69,7 @@
 
           <article>
   <header>
-    <h2><a href='/2020/01/winter-2020-prospective.html'>Winter 2020 Prospective</a></h2>
+    <h1>Winter 2020 Prospective</h1>
     <p class='date-and-tags'>
 <time datetime="2020-01-13" pubdate="true">2020-01-13</time> :: <span class="tags"><a href="/tags/journal.html">journal</a></span></p>
     <!-- <p class='authors'>By: <span class="authors">Eric Griffis</span></p> -->
@@ -79,35 +79,18 @@
 project catalog and public relations vehicle. There should be at least one
 place on the Internet I can point to as a portfolio that isn&rsquo;t GitHub. So, in
 that spirit, here&rsquo;s what the next few months are starting to look like.</p>
-  <footer>
-    <a href='/2020/01/winter-2020-prospective.html'>&hellip; more &hellip;</a>
-    <hr>
-  </footer>
-</article>
-<article>
-  <header>
-    <h2><a href='/2019/09/customizing-source-locations-in-rackunit-macros.html'>Customizing Source Locations in Rackunit Macros</a></h2>
-    <p class='date-and-tags'>
-<time datetime="2019-09-09" pubdate="true">2019-09-09</time> :: <span class="tags"><a href="/tags/Racket.html">Racket</a>, <a href="/tags/meta-programming.html">meta-programming</a></span></p>
-    <!-- <p class='authors'>By: <span class="authors">Eric Griffis</span></p> -->
-  </header>
+<!--more-->
 
-<p>Generating <a class="Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?tag=%28part._%28.%27%28lib._rackunit%2Fscribblings%2Frackunit..scrbl%29.%27._.%27top.%27%29%29">rackunit</a> tests with <a href="https://racket-lang.org/">Racket</a> macros is an easy way to improve the
-quality of your unit tests and your unit testing experience. Macros not only
-save you the time and energy of writing boilerplate, but also allow you to
-customize how tests are specified.</p>
+<p>The C++ back end for <a class="Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?tag=%28part._%28.%27%28lib._glm%2Fscribblings%2Fglm..scrbl%29.%27._.%27top.%27%29%29">GLM for Racket</a> has been in limbo for a month. I&rsquo;m gonna
+punt for now and use the fastest pure-Racket method compatible with
+<a class="Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?tag=%28part._%28.%27%28lib._template%2Fscribblings%2Ftemplate..scrbl%29.%27._.%27top.%27%29%29">template macros</a>, then it&rsquo;s back to <a class="Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?tag=%28part._%28.%27%28lib._graphics-engine%2Fscribblings%2Fgraphics-engine..scrbl%29.%27._.%27top.%27%29%29">graphics-engine</a> and <a class="Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?tag=%28part._%28.%27%28lib._voxel%2Fscribblings%2Fvoxel..scrbl%29.%27._.%27top.%27%29%29">#lang voxel</a>. If
+<a class="Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?tag=%28part._%28.%27%28lib._glm%2Fscribblings%2Fglm..scrbl%29.%27._.%27top.%27%29%29">GLM for Racket</a> wraps early enough, February will be screencast mania! <a class="Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?tag=%28part._%28.%27%28lib._neuron%2Fscribblings%2Fmain..scrbl%29.%27._.%27top.%27%29%29">Neuron</a>
+and <a class="Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?tag=%28part._%28.%27%28lib._algebraic%2Fscribblings%2Falgebraic..scrbl%29.%27._.%27top.%27%29%29">Algebraic Racket</a> need some attention, too, which should wrap by end of
+February as well.</p>
 
-<p>So what&rsquo;s the catch?</p>
-
-<p><a class="Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?tag=%28part._%28.%27%28lib._rackunit%2Fscribblings%2Frackunit..scrbl%29.%27._.%27top.%27%29%29">rackunit</a>&rsquo;s basic checks are, by and large, functions. They raise run-time
-errors when they fail, and run-time errors report the source locations of
-their call sites. In tests generated by purely pattern-based macros, these
-locations point inside the macro definitions. Giving useful source locations
-to macro-generated tests takes a little more work.</p>
-  <footer>
-    <a href='/2019/09/customizing-source-locations-in-rackunit-macros.html'>&hellip; more &hellip;</a>
-    <hr>
-  </footer>
+<p>In March, work on the graphics libraries will start to wind down and I&rsquo;ll move
+onto live audio. By summer time, I want to be able to perform #lang-based sets
+live.</p>
 </article>
         </div>
       </div>

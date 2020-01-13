@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+ <title type="text">dedbox: Posts tagged 'journal'</title>
+ <link rel="self" href="https://dedbox.github.io/feeds/journal.atom.xml" />
+ <link href="https://dedbox.github.io/tags/journal.html" />
+ <id>urn:https-dedbox-github-io:-tags-journal-html</id>
+ <updated>2020-01-13T22:07:32Z</updated>
+ <entry>
+  <title type="text">Winter 2020 Prospective</title>
+  <link rel="alternate" href="https://dedbox.github.io/2020/01/winter-2020-prospective.html?utm_source=journal&amp;utm_medium=Atom" />
+  <id>urn:https-dedbox-github-io:-2020-01-winter-2020-prospective-html</id>
+  <published>2020-01-13T22:07:32Z</published>
+  <updated>2020-01-13T22:07:32Z</updated>
+  <author>
+   <name>Eric Griffis</name></author>
+  <content type="html">
+&lt;p&gt;I&amp;rsquo;ve decided to make a serious effort this year to start using this blog as a
+project catalog and public relations vehicle. There should be at least one
+place on the Internet I can point to as a portfolio that isn&amp;rsquo;t GitHub. So, in
+that spirit, here&amp;rsquo;s what the next few months are starting to look like.&lt;/p&gt;&lt;a href="https://dedbox.github.io/2020/01/winter-2020-prospective.html?utm_source=journal&amp;amp;utm_medium=Atom"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</content></entry></feed>
