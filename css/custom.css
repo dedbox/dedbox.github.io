@@ -318,3 +318,7 @@ span.HsTyp {
 .HsTyp a:visited { text-decoration: none; }
 .HsTyp a:hover   { text-decoration: underline; }
 .HsTyp a:active  { text-decoration: underline; }
+
+#content > h1 {
+    margin-top: 25px;
+}
