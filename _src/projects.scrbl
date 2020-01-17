@@ -7,22 +7,29 @@
 @section*{Meta-Programming}
 
 @itemlist[
-  @item{@hyperlink["https://github.com/dedbox/racket-algebraic"]{Algebraic Racket}}
-  @item{@hyperlink["https://github.com/dedbox/racket-template"]{Template Macros}}
+  @item{@hyperlink["https://github.com/dedbox/racket-algebraic"]{Algebraic Racket}
+  - Algebraic Structures for Untyped Racket}
+  @item{@hyperlink["https://github.com/dedbox/racket-template"]{Template Macros}
+  - Dead Simple Code Generation}
 ]
 
-@section*{Networking & Concurrency}
+@section*{Data Flow}
 
 @itemlist[
   @item{@hyperlink["https://github.com/dedbox/racket-neuron"]{Neuron}
   - Decentralized Software Organisms}
+]
+
+@section*{Concurrency}
+
+@itemlist[
   @item{@hyperlink["https://github.com/dedbox/racket-cmx"]{CMX}
   - A Calculus of Mediated Exchange}
   @item{@hyperlink["https://github.com/dedbox/racket-event-lang"]{Event-lang}
   - Synchronizable Event Programming}
 ]
 
-@section*{3-D Graphics}
+@section*{Graphics}
 
 @itemlist[
   @item{@hyperlink["https://github.com/dedbox/racket-voxel"]{#lang voxel}
@@ -35,7 +42,8 @@
 @section*{Typesetting}
 
 @itemlist[
-  @item{@hyperlink["https://github.com/dedbox/racket-texmath"]{TeXmath}: A LaTeX Math Notation for Scribble}
+  @item{@hyperlink["https://github.com/dedbox/racket-texmath"]{TeXmath}
+  - LaTeX Math Notation for Scribble Docs}
 ]
 
 @; @section*{2-D Graphics}
