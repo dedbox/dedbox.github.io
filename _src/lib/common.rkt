@@ -22,17 +22,24 @@
   (λ args (list ($ section #:style '(unnumbered toc-hidden) args) sec-hr)))
 (define subsection* (λ args ($ subsection #:style 'unnumbered args)))
 
+;;; Technical Terms
+
 (define (rtech . args)
   ($ tech #:doc '(lib "scribblings/reference/reference.scrbl") args))
-
-(define (atech . args)
-  ($ tech #:doc '(lib "algebraic/scribblings/algebraic.scrbl") args))
 
 (define (gtech . args)
   ($ tech #:doc '(lib "scribblings/guide/guide.scrbl") args))
 
 (define (glink . args)
   ($ seclink #:doc '(lib "scribblings/guide/guide.scrbl") args))
+
+(define (atech . args)
+  ($ tech #:doc '(lib "algebraic/scribblings/algebraic.scrbl") args))
+
+(define (ttech . args)
+  ($ tech #:doc '(lib "template/scribblings/template.scrbl") args))
+
+;;; 
 
 (define (grammar name . rules)
   (tabular
