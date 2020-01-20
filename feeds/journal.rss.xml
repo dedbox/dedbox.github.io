@@ -4,9 +4,19 @@
   <title>dedbox: Posts tagged 'journal'</title>
   <description>dedbox: Posts tagged 'journal'</description>
   <link>https://dedbox.github.io/tags/journal.html</link>
-  <lastBuildDate>Mon, 13 Jan 2020 22:07:32 UT</lastBuildDate>
-  <pubDate>Mon, 13 Jan 2020 22:07:32 UT</pubDate>
+  <lastBuildDate>Mon, 20 Jan 2020 17:59:48 UT</lastBuildDate>
+  <pubDate>Mon, 20 Jan 2020 17:59:48 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Documentation As a Creative Force</title>
+   <link>https://dedbox.github.io/2020/01/documentation-as-a-creative-force.html?utm_source=journal&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:https-dedbox-github-io:-2020-01-documentation-as-a-creative-force-html</guid>
+   <pubDate>Mon, 20 Jan 2020 17:59:48 UT</pubDate>
+   <author>Eric Griffis</author>
+   <description>
+&lt;p&gt;Docs for the &lt;a href="https://pkgs.racket-lang.org/package/template"&gt;template&lt;/a&gt; package are coming together nicely. The
+architectural details are starting to jump off the page, so I&amp;rsquo;m slowing down
+to fold them into the code base as they emerge.&lt;/p&gt;&lt;a href="https://dedbox.github.io/2020/01/documentation-as-a-creative-force.html?utm_source=journal&amp;amp;utm_medium=RSS"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</description></item>
   <item>
    <title>Winter 2020 Prospective</title>
    <link>https://dedbox.github.io/2020/01/winter-2020-prospective.html?utm_source=journal&amp;utm_medium=RSS</link>
