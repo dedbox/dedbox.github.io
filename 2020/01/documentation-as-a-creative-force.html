@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Documentation As a Creative Force</title>
-    <meta name="description" content="Docs for the template package are coming together nicely. The architectural details are starting to jump off the page, so I'm slowing down to fold them into the code base as they emerge....">
+    <meta name="description" content="Docs for the template package are coming together nicely. Architectural details are starting to jump off the page, so I'm slowing down to fold them into the code....">
     <meta name="author"      content="Eric Griffis">
     <meta name="keywords"    content="journal">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
@@ -75,16 +75,16 @@
     <!-- <p class='authors'>By: <span class="authors">Eric Griffis</span></p> -->
   </header>
 
-<p>Docs for the <a href="https://pkgs.racket-lang.org/package/template">template</a> package are coming together nicely. The
-architectural details are starting to jump off the page, so I&rsquo;m slowing down
-to fold them into the code base as they emerge.</p>
+<p>Docs for the <a href="https://pkgs.racket-lang.org/package/template">template</a> package are coming together nicely. Architectural
+details are starting to jump off the page, so I&rsquo;m slowing down to fold them
+into the code.</p>
 <!--more-->
 
 <p>Documentation is an essential part of my creative process. It exposes the
 <a name="(tech._low._frequency._pattern)"></a><span style="font-style: italic">low-frequency patterns</span>&#8212;
  <wbr />the high-level concepts and techniques that
 enable the collective expression of disparate elements&#8212;
- <wbr />in a code base.
+ <wbr />of a code base.
 Dialing into &ldquo;the right frequency&rdquo; inexorably leads to profoundly simpler
 code with more features and fewer bugs.</p>
 
@@ -101,39 +101,40 @@ code with more features and fewer bugs.</p>
   <p>A blog-style introduction</p></li></ul>
 
 <p>In writing each one, I take a distinct perspective that supports the others.
-The first two comprise the <a class="Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html">reference manual</a> to be served by Racket&rsquo;s official
-documentation repository. Together, they give a comprehensive account of the
-concepts, forms, and functions provided by the <a href="https://pkgs.racket-lang.org/package/template">template</a> package. The
-<a href="https://github.com/dedbox/racket-template/blob/master/README.md">README.md</a> file summarizes the project and explains how to install, use, and
-contribute to it. The blog intro makes a case for depending on the
-<a href="https://pkgs.racket-lang.org/package/template">template</a> package in other projects.</p>
+The first two comprise the <a class="Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html">reference manual</a>, to be served by Racket&rsquo;s
+official documentation repository. Together, they give a comprehensive account
+of the concepts, forms, and functions provided by the <a href="https://pkgs.racket-lang.org/package/template">template</a> package.
+The <a href="https://github.com/dedbox/racket-template/blob/master/README.md">README.md</a> file summarizes the project and explains how to install, use,
+and contribute to it. The blog intro makes a case for using the <a href="https://pkgs.racket-lang.org/package/template">template</a>
+package in other projects.</p>
 
 <p>The API reference was easiest to start with, which is typical, in my
 experience. Reference material is special in the sense that hard facts tend to
-speak for themselves, thus freeing attention for higher level concerns like
+speak for themselves, which frees attention for higher level concerns like
 consistent naming and algorithmic robustness without having to contextualize
 anything for skeptical readers. With very few exceptions, everything in the
 API reference is illustrated by live example code. Early in the drafting
 process, these examples can act as insurance against bad prose and accelerate
 evolution of the language design.</p>
 
-<p>The blog intro is, in a pragmatic sense, the inverse of the <a class="Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html">reference manual</a>
-perspective. Its job is to convert the skeptical reader into an active user,
-so contextualization is really all that matters. This is the hardest part for
-me. To pitch <a class="techoutside Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528tech._template._macro%2529"><span class="techinside">template macros</span></a> confidently, I need to know that what I&rsquo;m saying
-is interesting, refutable, and true. Gaining sufficient clarity can be a
-challenge, but it&rsquo;s almost always worth the trouble.</p>
+<p>The blog intro&rsquo;s perspective is the pragmatic inverse of the
+<a class="Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html">reference manual</a>&rsquo;s. Its job is to convert the skeptical reader into an active
+user, so contextualization is really all that matters. This is the hardest
+part for me. To pitch <a class="techoutside Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528tech._template._macro%2529"><span class="techinside">template macros</span></a> confidently, I need to know that what
+I&rsquo;m saying is interesting, relevant, refutable, and true. Gaining sufficient
+clarity on any one of these criteria can be a challenge, but it&rsquo;s almost
+always worth the trouble.</p>
 
-<p>Yesterday, I resolved an awkward tension between template variables bound to
-identifiers versus those that aren&rsquo;t. While struggling with the blog intro, I
-discovered that the way I&rsquo;m projecting variable resolution into identifier
-names can be extended to any literal data form, including strings, regular
-expressions, and even hash keys! Once I understood the <a class="techoutside" data-pltdoc="x" href="#%28tech._low._frequency._pattern%29"><span class="techinside">low-frequency
-pattern</span></a> here&#8212;
- <wbr />that all non-trivial transformations occur inside the literal
-data&#8212;
- <wbr />most of the prototype&rsquo;s flexibilty became unnecessary. Trimming the fat
-is already revealing a more compact, elegant, and robust core.</p>
+<p>Just yesterday, I resolved an awkward tension between template variables bound
+to identifiers versus ones that aren&rsquo;t. While struggling with the blog intro,
+I realized that it would be easy to generalize variable resolution from
+identifiers to any literal forms, including strings, regular expressions,
+and even hash keys! Once I understood the <a class="techoutside" data-pltdoc="x" href="#%28tech._low._frequency._pattern%29"><span class="techinside">low-frequency pattern</span></a>
+here&#8212;
+ <wbr />that all non-trivial transformations occur inside literal data
+forms&#8212;
+ <wbr />most of the prototype&rsquo;s flexibilty became irrelevant. Trimming the fat
+is revealing a more compact, elegant, and robust core.</p>
 </article>
         </div>
       </div>
