@@ -27,8 +27,7 @@ nav > .container > .d-flex {
 }
 
 nav.bg-dark {
-    /* background-color: #667755 !important; */
-    background-color: rgb(64, 50, 49) !important;
+    background-color: #1f261d !important;
 }
 
 .navbar .navbar-brand {
