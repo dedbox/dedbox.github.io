@@ -3,14 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Template Macros, Initial Release</title>
-    <meta name="description" content="I'm pleased to announce Template Macros, an experimental meta-programming technique that dramatically simplifies the generation of higher-order Racket meta-programs....">
+    <meta name="description" content="Template Macros are a new Racket library that dramatically simplifies the generation of meta-program code....">
     <meta name="author"      content="Eric Griffis">
     <meta name="keywords"    content="announcement, Racket, meta-programming">
     <meta name="viewport"    content="width=device-width, initial-scale=1.0">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@dedbox">
     <meta name="twitter:title" content="Template Macros, Initial Release">
-    <meta name="twitter:description" content="I'm pleased to announce Template Macros, an experimental meta-programming technique that dramatically simplifies the generation of higher-order Racket meta-programs....">
+    <meta name="twitter:description" content="Template Macros are a new Racket library that dramatically simplifies the generation of meta-program code....">
     <meta name="twitter:image" content="https://dedbox.github.io/img/ddbx.png">
     <link rel="icon"      href="/favicon.ico">
     <link rel="canonical" href="https://dedbox.github.io/2020/03/template-macros-initial-release.html">
@@ -80,9 +80,8 @@
     <!-- <p class='authors'>By: <span class="authors">Eric Griffis</span></p> -->
   </header>
 
-<p>I&rsquo;m pleased to announce <a href="https://github.com/dedbox/racket-template">Template Macros</a>, an experimental meta-programming
-technique that dramatically simplifies the generation of higher-order <a href="https://racket-lang.org/">Racket</a>
-meta-programs.</p>
+<p><a href="https://github.com/dedbox/racket-template">Template Macros</a> are a new <a href="https://racket-lang.org/">Racket</a> library that dramatically simplifies the
+generation of meta-program code.</p>
 <!--more-->
 
 <p><a href="https://github.com/dedbox/racket-template">Template macros</a> infiltrate the spaces underserved by <a href="https://racket-lang.org/">Racket</a>&rsquo;s existing
@@ -92,7 +91,15 @@ pattern-based and procedural macros, such as the insides of literal data,</p>
  <table cellpadding="0" cellspacing="0" class="RktBlk">
   <tbody>
    <tr>
-    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528form._%2528%2528lib._template%252Fmain..rkt%2529._with-template%2529%2529">with-template</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">[</span><span class="RktSym">X</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">]</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">Y</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/values.html#%28def._%28%28quote._~23~25kernel%29._values%29%29">values</a></span><span class="hspace">&nbsp;</span><span class="RktSym">XY3</span><span class="hspace">&nbsp;</span><span class="RktVal">"YX0"</span><span class="hspace">&nbsp;</span><span class="RktVal">#rx"^X+Y$"</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+    <td>
+     <table cellpadding="0" cellspacing="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528form._%2528%2528lib._template%252Fmain..rkt%2529._with-template%2529%2529">with-template</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">[</span><span class="RktSym">X</span><span class="hspace">&nbsp;</span><span class="RktVal">1</span><span class="RktPn">]</span></td></tr>
+       <tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">[</span><span class="RktSym">Y</span><span class="hspace">&nbsp;</span><span class="RktVal">2</span><span class="RktPn">]</span><span class="RktPn">)</span></td></tr>
+       <tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/values.html#%28def._%28%28quote._~23~25kernel%29._values%29%29">values</a></span><span class="hspace">&nbsp;</span><span class="RktSym">XY3</span><span class="hspace">&nbsp;</span><span class="RktVal">"YX0"</span><span class="hspace">&nbsp;</span><span class="RktVal">#rx"^X+Y$"</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
     <td>
      <table cellpadding="0" cellspacing="0">
@@ -113,30 +120,63 @@ pattern-based and procedural macros, such as the insides of literal data,</p>
  <table cellpadding="0" cellspacing="0" class="RktBlk">
   <tbody>
    <tr>
-    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528form._%2528%2528lib._template%252Fmain..rkt%2529._with-template%2529%2529">with-template</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">[</span><span class="RktSym">X</span><span class="hspace">&nbsp;</span><span class="RktSym">a</span><span class="RktPn">]</span><span class="hspace">&nbsp;</span><span class="RktPn">[</span><span class="RktSym">Y</span><span class="hspace">&nbsp;</span><span class="RktSym">b</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">(</span><span class="RktVal">+X+</span><span class="hspace">&nbsp;</span><span class="RktVal">#'</span><span class="RktVal">!Y!</span><span class="RktVal">)</span><span class="RktPn">)</span></td></tr>
+    <td>
+     <table cellpadding="0" cellspacing="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528form._%2528%2528lib._template%252Fmain..rkt%2529._begin-template%2529%2529">begin-template</a></span></td></tr>
+       <tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktRdr">#'</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528form._%2528%2528lib._template%252Fmain..rkt%2529._untemplate%2529%2529">untemplate</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/pairs.html#%28def._%28%28lib._racket%2Fprivate%2Flist..rkt%29._build-list%29%29">build-list</a></span><span class="hspace">&nbsp;</span><span class="RktVal">10</span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/values.html#%28def._%28%28quote._~23~25kernel%29._values%29%29">values</a></span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
     <td>
-     <p><span class="RktRes">'(+a+ #'!b!)</span></p></td></tr></tbody></table></div>
+     <p><span class="RktRes">#&lt;syntax:eval:73:16 (0 1 2 3 4 5 6 7 8 9)&gt;</span></p></td></tr></tbody></table></div>
 
-<p>and when one <a href="https://github.com/dedbox/racket-template">template macro</a> is used by another, the results are spliced.</p>
+<p>and when one <a href="https://github.com/dedbox/racket-template">template macro</a> is used by another, the results are spliced in
+place automatically.</p>
 
 <div class="SCodeFlow">
  <table cellpadding="0" cellspacing="0" class="RktBlk">
   <tbody>
    <tr>
-    <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528form._%2528%2528lib._template%252Fmain..rkt%2529._begin-template%2529%2529">begin-template</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/pairs.html#%28def._%28%28quote._~23~25kernel%29._list%29%29">list</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528form._%2528%2528lib._template%252Fmain..rkt%2529._for%252Ftemplate%2529%2529">for/template</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">[</span><span class="RktSym">K</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._in-range%29%29">in-range</a></span><span class="hspace">&nbsp;</span><span class="RktVal">10</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">K</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+    <td>
+     <table cellpadding="0" cellspacing="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528form._%2528%2528lib._template%252Fmain..rkt%2529._begin-template%2529%2529">begin-template</a></span></td></tr>
+       <tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/pairs.html#%28def._%28%28quote._~23~25kernel%29._list%29%29">list</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528form._%2528%2528lib._template%252Fmain..rkt%2529._for%252Ftemplate%2529%2529">for/template</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">[</span><span class="RktSym">K</span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/sequences.html#%28def._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._in-range%29%29">in-range</a></span><span class="hspace">&nbsp;</span><span class="RktVal">10</span><span class="RktPn">)</span><span class="RktPn">]</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktSym">K</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>
     <td>
      <p><span class="RktRes">'(0 1 2 3 4 5 6 7 8 9)</span></p></td></tr></tbody></table></div>
 
-<p><a href="https://github.com/dedbox/racket-template">Template macros</a> eliminate common technical barriers to higher-order <a href="https://racket-lang.org/">Racket</a>
-meta-programming by preempting the default macro expander. The current API
-offers a lot more than I could jam into a release announcement, and it&rsquo;s still
-growing! In the coming weeks and months, I&rsquo;ll try to post some topic-focused
-tutorials that highlight the wealth of functionality <a href="https://github.com/dedbox/racket-template">template macros</a> provide
-to the practicing language-oriented <a href="https://racket-lang.org/">Racket</a> programmer.</p>
+<p><a href="https://github.com/dedbox/racket-template">Template macros</a> eliminate common technical barriers to advanced <a href="https://racket-lang.org/">Racket</a>
+meta-programming techniques by preempting the default macro expander. The
+current API offers a lot more than I could jam into a release announcement,
+and it&rsquo;s still evolving!</p>
 
-<p>But the next time you face a wall of <span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/syntax-util.html#%28def._%28%28lib._racket%2Fsyntax..rkt%29._format-id%29%29">format-id</a></span>s,</p>
+<p>In the coming weeks and months, I&rsquo;ll try to post some topic-focused tutorials
+that highlight the wealth of functionality <a href="https://github.com/dedbox/racket-template">template macros</a> provide to the
+practicing language-oriented <a href="https://racket-lang.org/">Racket</a> programmer.</p>
+
+<p>But the next time you trip on a missing <span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/stxtrans.html#%28def._%28%28quote._~23~25kernel%29._syntax-local-introduce%29%29">syntax-local-introduce</a></span>,</p>
+
+<div class="SCodeFlow">
+ <table cellpadding="0" cellspacing="0" class="RktBlk">
+  <tbody>
+   <tr>
+    <td>
+     <table cellpadding="0" cellspacing="0" class="RktBlk">
+      <tbody>
+       <tr>
+        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528form._%2528%2528lib._template%252Fmain..rkt%2529._define-template%2529%2529">define-template</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">urlang-js</span><span class="hspace">&nbsp;</span><span class="RktSym">modpath</span><span class="RktPn">)</span></td></tr>
+       <tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/let.html#%28form._%28%28lib._racket%2Fprivate%2Fletstx-scheme..rkt%29._let%29%29">let</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">)</span></td></tr>
+       <tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._local-require%29%29">local-require</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._only-in%29%29">only-in</a></span><span class="hspace">&nbsp;</span><span class="RktSym">modpath</span><span class="hspace">&nbsp;</span><span class="RktSym">the-javascript</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+       <tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">the-javascript</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr></tbody></table></div>
+
+<p>or find yourself facing a wall of <span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/syntax-util.html#%28def._%28%28lib._racket%2Fsyntax..rkt%29._format-id%29%29">format-id</a></span>s,</p>
 
 <div class="SCodeFlow">
  <table cellpadding="0" cellspacing="0" class="RktBlk">
@@ -183,24 +223,6 @@ to the practicing language-oriented <a href="https://racket-lang.org/">Racket</a
         <td>
          <p><span class="RktRes"></span><span class="hspace">&nbsp;&nbsp;</span><span class="RktRes">(vector 0 0 0 0 1))</span></p></td></tr></tbody></table></td></tr></tbody></table></div>
 
-<p>or trip on a missing <span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/stxtrans.html#%28def._%28%28quote._~23~25kernel%29._syntax-local-introduce%29%29">syntax-local-introduce</a></span>,</p>
-
-<div class="SCodeFlow">
- <table cellpadding="0" cellspacing="0" class="RktBlk">
-  <tbody>
-   <tr>
-    <td>
-     <table cellpadding="0" cellspacing="0" class="RktBlk">
-      <tbody>
-       <tr>
-        <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528form._%2528%2528lib._template%252Fmain..rkt%2529._define-template%2529%2529">define-template</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">urlang-js</span><span class="hspace">&nbsp;</span><span class="RktSym">modpath</span><span class="RktPn">)</span></td></tr>
-       <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/let.html#%28form._%28%28lib._racket%2Fprivate%2Fletstx-scheme..rkt%29._let%29%29">let</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktPn">)</span></td></tr>
-       <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._local-require%29%29">local-require</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/require.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._only-in%29%29">only-in</a></span><span class="hspace">&nbsp;</span><span class="RktSym">modpath</span><span class="hspace">&nbsp;</span><span class="RktSym">the-javascript</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
-       <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym">the-javascript</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr></tbody></table></div>
-
 <p>or struggle to interleave <a href="http://www.greghendershott.com/fear-of-macros/pattern-matching.html#%28part._.Another_example%29">a medley</a> of
 functions with &ldquo;syntax&rdquo; in their names,</p>
 
@@ -214,7 +236,9 @@ functions with &ldquo;syntax&rdquo; in their names,</p>
        <tr>
         <td><span class="stt">&gt; </span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/local-redirect/?doc=template&amp;rel=index.html%23%2528form._%2528%2528lib._template%252Fmain..rkt%2529._define-template%2529%2529">define-template</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym">hyphen-define*</span><span class="hspace">&nbsp;</span><span class="RktSym">Names</span><span class="hspace">&nbsp;</span><span class="RktSym">Args</span><span class="hspace">&nbsp;</span><span class="RktSym">Body</span><span class="RktPn">)</span></td></tr>
        <tr>
-        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span><span class="hspace">&nbsp;</span><span class="RktRdr">#,</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/symbols.html#%28def._%28%28quote._~23~25kernel%29._string-~3esymbol%29%29">string-&gt;symbol</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/strings.html#%28def._%28%28lib._racket%2Fstring..rkt%29._string-join%29%29">string-join</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/pairs.html#%28def._%28%28lib._racket%2Fprivate%2Fmap..rkt%29._map%29%29">map</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/symbols.html#%28def._%28%28quote._~23~25kernel%29._symbol-~3estring%29%29">symbol-&gt;string</a></span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">Names</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">"-"</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/define.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._define%29%29">define</a></span></td></tr>
+       <tr>
+        <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktRdr">#,</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/symbols.html#%28def._%28%28quote._~23~25kernel%29._string-~3esymbol%29%29">string-&gt;symbol</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/strings.html#%28def._%28%28lib._racket%2Fstring..rkt%29._string-join%29%29">string-join</a></span><span class="hspace">&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/pairs.html#%28def._%28%28lib._racket%2Fprivate%2Fmap..rkt%29._map%29%29">map</a></span><span class="hspace">&nbsp;</span><span class="RktSym"><a class="RktValLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/symbols.html#%28def._%28%28quote._~23~25kernel%29._symbol-~3estring%29%29">symbol-&gt;string</a></span><span class="hspace">&nbsp;</span><span class="RktVal">'</span><span class="RktVal">Names</span><span class="RktPn">)</span><span class="hspace">&nbsp;</span><span class="RktVal">"-"</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr>
        <tr>
         <td><span class="hspace">&nbsp;&nbsp;</span><span class="hspace">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="RktPn">(</span><span class="RktSym"><a class="RktStxLink Sq" data-pltdoc="x" href="https://docs.racket-lang.org/reference/lambda.html#%28form._%28%28lib._racket%2Fprivate%2Fbase..rkt%29._~ce~bb%29%29">&#955;</a></span><span class="hspace">&nbsp;</span><span class="RktSym">Args</span><span class="hspace">&nbsp;</span><span class="RktSym">Body</span><span class="RktPn">)</span><span class="RktPn">)</span><span class="RktPn">)</span></td></tr></tbody></table></td></tr>
    <tr>

@@ -52,9 +52,8 @@ Tags: announcement, Racket, meta-programming
 
 @;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-I'm pleased to announce @Template-Macros, an experimental meta-programming
-technique that dramatically simplifies the generation of higher-order @Racket
-meta-programs.
+@Template-Macros are a new @Racket library that dramatically simplifies the
+generation of meta-program code.
 
 <!-- more -->
 
@@ -62,29 +61,45 @@ meta-programs.
 pattern-based and procedural macros, such as the insides of literal data,
 
 @example[
-(with-template ([X 1] [Y 2]) (values XY3 "YX0" #rx"^X+Y$"))
+(with-template ([X 1]
+                [Y 2])
+  (values XY3 "YX0" #rx"^X+Y$"))
 ]
 
 or in the various quoted forms;
 
 @example[
-(with-template ([X a] [Y b]) '(+X+ #'!Y!))
+(begin-template
+  #'(untemplate (build-list 10 values)))
 ]
 
-and when one @template-macro is used by another, the results are spliced.
+and when one @template-macro is used by another, the results are spliced in
+place automatically.
 
 @example[
-(begin-template (list (for/template ([K (in-range 10)]) K)))
+(begin-template
+  (list (for/template ([K (in-range 10)]) K)))
 ]
 
-@Template-macros eliminate common technical barriers to higher-order @Racket
-meta-programming by preempting the default macro expander. The current API
-offers a lot more than I could jam into a release announcement, and it's still
-growing! In the coming weeks and months, I'll try to post some topic-focused
-tutorials that highlight the wealth of functionality @template-macros provide
-to the practicing language-oriented @Racket programmer.
+@Template-macros eliminate common technical barriers to advanced @Racket
+meta-programming techniques by preempting the default macro expander. The
+current API offers a lot more than I could jam into a release announcement,
+and it's still evolving!
 
-But the next time you face a wall of @racket[format-id]s,
+In the coming weeks and months, I'll try to post some topic-focused tutorials
+that highlight the wealth of functionality @template-macros provide to the
+practicing language-oriented @Racket programmer.
+
+But the next time you trip on a missing @racket[syntax-local-introduce],
+
+@example[
+(define-template (urlang-js modpath)
+  (let ()
+    (local-require (only-in modpath the-javascript))
+    (the-javascript)))
+]
+
+or find yourself facing a wall of @racket[format-id]s,
 
 @example[
 (for*/template ([M (in-range 1 6)]
@@ -98,21 +113,13 @@ But the next time you face a wall of @racket[format-id]s,
 id5
 ]
 
-or trip on a missing @racket[syntax-local-introduce],
-
-@example[
-(define-template (urlang-js modpath)
-  (let ()
-    (local-require (only-in modpath the-javascript))
-    (the-javascript)))
-]
-
 or struggle to interleave @hyperlink[fear-of-macros-url]{a medley} of
 functions with ``syntax'' in their names,
 
 @EXAMPLE[
 (define-template (hyphen-define* Names Args Body)
-  (define #,(string->symbol (string-join (map symbol->string 'Names) "-"))
+  (define
+    #,(string->symbol (string-join (map symbol->string 'Names) "-"))
     (λ Args Body)))
 (hyphen-define* (foo bar baz) (v) (* 2 v))
 (foo-bar-baz 50)
