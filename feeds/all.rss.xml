@@ -4,9 +4,18 @@
   <title>dedbox: dedbox</title>
   <description>dedbox: dedbox</description>
   <link>https://dedbox.github.io/index.html</link>
-  <lastBuildDate>Mon, 20 Jan 2020 17:59:48 UT</lastBuildDate>
-  <pubDate>Mon, 20 Jan 2020 17:59:48 UT</pubDate>
+  <lastBuildDate>Tue, 17 Mar 2020 14:00:00 UT</lastBuildDate>
+  <pubDate>Tue, 17 Mar 2020 14:00:00 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Template Macros, Initial Release</title>
+   <link>https://dedbox.github.io/2020/03/template-macros-initial-release.html?utm_source=all&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:https-dedbox-github-io:-2020-03-template-macros-initial-release-html</guid>
+   <pubDate>Tue, 17 Mar 2020 14:00:00 UT</pubDate>
+   <author>Eric Griffis</author>
+   <description>
+&lt;p&gt;&lt;a href="https://github.com/dedbox/racket-template"&gt;Template Macros&lt;/a&gt; are a new &lt;a href="https://racket-lang.org/"&gt;Racket&lt;/a&gt; library that dramatically simplifies the
+generation of meta-program code.&lt;/p&gt;&lt;a href="https://dedbox.github.io/2020/03/template-macros-initial-release.html?utm_source=all&amp;amp;utm_medium=RSS"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</description></item>
   <item>
    <title>Documentation As a Creative Force</title>
    <link>https://dedbox.github.io/2020/01/documentation-as-a-creative-force.html?utm_source=all&amp;utm_medium=RSS</link>

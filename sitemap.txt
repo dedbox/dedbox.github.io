@@ -1,5 +1,6 @@
 https://dedbox.github.io/2019/09/customizing-source-locations-in-rackunit-macros.html
 https://dedbox.github.io/2020/01/documentation-as-a-creative-force.html
 https://dedbox.github.io/2020/01/winter-2020-prospective.html
+https://dedbox.github.io/2020/03/template-macros-initial-release.html
 https://dedbox.github.io/projects.html
 https://dedbox.github.io/about.html

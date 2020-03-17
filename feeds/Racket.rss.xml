@@ -4,9 +4,18 @@
   <title>dedbox: Posts tagged 'Racket'</title>
   <description>dedbox: Posts tagged 'Racket'</description>
   <link>https://dedbox.github.io/tags/Racket.html</link>
-  <lastBuildDate>Mon, 09 Sep 2019 19:54:15 UT</lastBuildDate>
-  <pubDate>Mon, 09 Sep 2019 19:54:15 UT</pubDate>
+  <lastBuildDate>Tue, 17 Mar 2020 14:00:00 UT</lastBuildDate>
+  <pubDate>Tue, 17 Mar 2020 14:00:00 UT</pubDate>
   <ttl>1800</ttl>
+  <item>
+   <title>Template Macros, Initial Release</title>
+   <link>https://dedbox.github.io/2020/03/template-macros-initial-release.html?utm_source=Racket&amp;utm_medium=RSS</link>
+   <guid isPermaLink="false">urn:https-dedbox-github-io:-2020-03-template-macros-initial-release-html</guid>
+   <pubDate>Tue, 17 Mar 2020 14:00:00 UT</pubDate>
+   <author>Eric Griffis</author>
+   <description>
+&lt;p&gt;&lt;a href="https://github.com/dedbox/racket-template"&gt;Template Macros&lt;/a&gt; are a new &lt;a href="https://racket-lang.org/"&gt;Racket&lt;/a&gt; library that dramatically simplifies the
+generation of meta-program code.&lt;/p&gt;&lt;a href="https://dedbox.github.io/2020/03/template-macros-initial-release.html?utm_source=Racket&amp;amp;utm_medium=RSS"&gt;&lt;em&gt;More&amp;hellip;&lt;/em&gt;&lt;/a&gt;</description></item>
   <item>
    <title>Customizing Source Locations in Rackunit Macros</title>
    <link>https://dedbox.github.io/2019/09/customizing-source-locations-in-rackunit-macros.html?utm_source=Racket&amp;utm_medium=RSS</link>
