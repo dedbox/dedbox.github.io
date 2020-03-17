@@ -38,6 +38,12 @@ nav.bg-dark {
     text-shadow: 1.5px 1.5px 0.5px #aa3333;
 }
 
+@media only screen and (max-width: 600px) {
+    #content > article > p {
+        text-align: justify;
+    }
+}
+
 h1,
 h2 > a,
 h2 > a:hover
