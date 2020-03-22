@@ -126,3 +126,9 @@ functions with ``syntax'' in their names,
 ]
 
 give @template-macros a try and let me know how it goes!
+
+@;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+@require[scribble/example]
+
+@close-eval[template-evaluator]
