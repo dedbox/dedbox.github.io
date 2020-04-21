@@ -8,9 +8,9 @@
 
 @itemlist[
   @item{@hyperlink["https://github.com/dedbox/racket-algebraic"]{Algebraic Racket}
-  - Algebraic Structures for Untyped Racket}
+  - Algebraic Structures for (untyped) Racket}
   @item{@hyperlink["https://github.com/dedbox/racket-template"]{Template Macros}
-  - Dead Simple Code Generation}
+  - Dead Simple Program Generation for Racket}
 ]
 
 @section*{Data Flow}
