@@ -90,3 +90,12 @@
        (syntax-case stx ()
          [(_ expr ...) #'(examples #:eval -eval #:label #f
                                    #:preserve-source-locations expr ...)])))))
+
+(begin-for-syntax
+  (define-syntax-rule (EXAMPLES/locations -eval)
+    (...
+     (λ (stx)
+       (syntax-case stx ()
+         [(_ expr ...) #'(examples #:eval -eval #:escape UNSYNTAX #:label #f
+                                   #:preserve-source-locations expr ...)])))))
+
