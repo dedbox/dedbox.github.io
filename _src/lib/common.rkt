@@ -122,3 +122,8 @@
          [(_ expr ...) #'(examples #:eval -eval #:escape UNSYNTAX #:label #f
                                    #:preserve-source-locations expr ...)])))))
 
+;;; ----------------------------------------------------------------------------
+;;; Non-Racket Code
+
+(define (pygment-block #:lang lang . args)
+  (nested #:style 'code-inset ($ pygment-code #:lang lang args)))
