@@ -1,11 +1,15 @@
 #lang algebraic/racket/base
 
-(require racket/sandbox
+(require frog/scribble
+         racket/sandbox
          scribble/core
          scribble/decode
          scribble/examples
          scribble/html-properties
-         scribble/manual)
+         scribble/manual
+         syntax/parse/define
+         (for-syntax racket/base
+                     racket/syntax))
 
 (provide (all-defined-out)
          (for-syntax (all-defined-out)))
@@ -38,6 +42,25 @@
 
 (define (ttech . args)
   ($ tech #:doc '(lib "template/scribblings/template.scrbl") args))
+
+;;; Links
+
+(define-simple-macro (deflink name url text ...)
+  (begin
+    (define name (hyperlink url text ...))
+    (deflink* name)))
+
+(define-simple-macro (deflink* name (~optional base))
+  #:with base* (or (attribute base) (attribute name))
+  #:with name. (format-id #'name "~a." (syntax-e #'name))
+  #:with name! (format-id #'name "~a!" (syntax-e #'name))
+  #:with name? (format-id #'name "~a?" (syntax-e #'name))
+  #:with name: (format-id #'name "~a:" (syntax-e #'name))
+  (begin
+    (define name. (list base* "."))
+    (define name! (list base* "!"))
+    (define name? (list base* "?"))
+    (define name: (list base* ":"))))
 
 ;;; 
 
